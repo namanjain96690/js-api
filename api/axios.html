@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head> 
+<body>
+    <script>
+        axios.get('https://api.tvmaze.com/singlesearch/shows?q=girls')
+        .then((res)=>{
+            console.log("got response");
+            return res
+        })
+        .then((resp)=>{
+            console.log(resp.data.image);
+        })
+        .catch((err)=>{
+            console.log("ooh error");
+        })
+
+        async function func(){
+            const config= {headers:{Accept: 'application/json'}};
+            const data= await axios.get('https://icanhazdadjoke.com/',config);
+            console.log(data.data.joke);
+        }
+        func();
+        func();
+    </script>
+</body>
+</html>
